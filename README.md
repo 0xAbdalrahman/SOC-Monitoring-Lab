@@ -6,9 +6,9 @@ This project simulates a complete Active Directory (AD) security environment int
 ## Skills Learned
 
 ##### Active Directory & Windows Security:
-- Configured and managed AD domains, user accounts, permissions, and security policies.
+- Configured and managed AD domains and user accounts.
 ##### Splunk SIEM
-- Installed, configured, and used Splunk for log collection, searching, and dashboard creation.
+- Installed, configured, and used Splunk for log collection and searching.
 ##### Log Analysis
 - Analyzed and interpreted Windows and network logs to detect suspicious activity.
 ##### Attack Understanding
@@ -26,15 +26,15 @@ This project simulates a complete Active Directory (AD) security environment int
 ##### Ubuntu Server
 – Hosting Splunk for log collection and analysis.
 ##### Splunk
-– SIEM platform for log ingestion, searching, and visualization.
+– SIEM platform for log ingestion and searching.
 ##### Kali Linux
-- Attacker machine for simulating brute force, Pass-the-Hash, and LDAP attacks.
+- Attacker machine for simulating attacks.
 ##### Sysmon
 - Collecting and analyzing Windows security logs.
 ##### Sigma
 - Generic detection rule framework for defining attack logic.
 ##### Crowbar
-- Brute force tool for RDP/SMB attacks.
+- Brute force tool for RDP attacks.
 ##### Atomic Red Team
  - Open-source library for testing MITRE ATT&CK techniques in a controlled environment.
 
