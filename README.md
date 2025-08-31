@@ -24,9 +24,9 @@ This project simulates a complete Active Directory (AD) security environment int
 ##### Windows Server & Windows 10: 
 - Active Directory Domain Controller and client machine.
 ##### Ubuntu Server
-– Hosting Splunk for log collection and analysis.
+- Hosting Splunk for log collection and analysis.
 ##### Splunk
-– SIEM platform for log ingestion and searching.
+- SIEM platform for log ingestion and searching.
 ##### Kali Linux
 - Attacker machine for simulating attacks.
 ##### Sysmon
@@ -36,7 +36,7 @@ This project simulates a complete Active Directory (AD) security environment int
 ##### Crowbar
 - Brute force tool for RDP attacks.
 ##### Atomic Red Team
- - Open-source library for testing MITRE ATT&CK techniques in a controlled environment.
+- Open-source library for testing MITRE ATT&CK techniques in a controlled environment.
 
   
 ## Steps
