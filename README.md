@@ -1,11 +1,7 @@
 # AD-Security-Lab
-This project simulates a complete Active Directory (AD) security environment integrated with Splunk SIEM for log collection, attack detection, and incident response. It demonstrates both red team attacks and blue team detection techniques in a controlled lab setting.
-# PROJECTNAME
 
 ## Objective
-[Brief Objective - Remove this afterwards]
-
-The Detection Lab project aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus was to ingest and analyze logs within a Security Information and Event Management (SIEM) system, generating test telemetry to mimic real-world attack scenarios. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
+This project simulates a complete Active Directory (AD) security environment integrated with Splunk SIEM for log collection, attack detection, and incident response. It demonstrates both red team attacks and blue team detection techniques in a controlled lab setting.
 
 ### Skills Learned
 [Bullet Points - Remove this afterwards]
