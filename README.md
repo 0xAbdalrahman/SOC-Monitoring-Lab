@@ -5,26 +5,40 @@ This project simulates a complete Active Directory (AD) security environment int
 
 ## Skills Learned
 
-#### Active Directory & Windows Security:
+##### Active Directory & Windows Security:
 - Configured and managed AD domains, user accounts, permissions, and security policies.
-#### Splunk SIEM
+##### Splunk SIEM
 - Installed, configured, and used Splunk for log collection, searching, and dashboard creation.
-#### Log Analysis
+##### Log Analysis
 - Analyzed and interpreted Windows and network logs to detect suspicious activity.
-#### Attack Understanding
+##### Attack Understanding
 - Learned attack techniques (brute force and Pass-the-Hash) and how to identify their indicators in logs.
-#### Sigma Rule Writing
+##### Sigma Rule Writing
 - Created Sigma rules for generic, SIEM-agnostic detection of attacks.
-#### Cybersecurity Problem-Solving 
+##### Cybersecurity Problem-Solving 
 - Developed critical thinking and hands-on problem-solving skills in security monitoring and investigation.
 
+--------------
+
 ### Tools Used
-[Bullet Points - Remove this afterwards]
+##### Windows Server & Windows 10: 
+- Active Directory Domain Controller and client machine.
+##### Ubuntu Server
+– Hosting Splunk for log collection and analysis.
+##### Splunk
+– SIEM platform for log ingestion, searching, and visualization.
+##### Kali Linux
+- Attacker machine for simulating brute force, Pass-the-Hash, and LDAP attacks.
+##### Sysmon
+- Collecting and analyzing Windows security logs.
+##### Sigma
+- Generic detection rule framework for defining attack logic.
+##### Crowbar
+- Brute force tool for RDP/SMB attacks.
+##### Atomic Red Team
+ - Open-source library for testing MITRE ATT&CK techniques in a controlled environment.
 
-- Security Information and Event Management (SIEM) system for log ingestion and analysis.
-- Network analysis tools (such as Wireshark) for capturing and examining network traffic.
-- Telemetry generation tools to create realistic network traffic and attack scenarios.
-
+  
 ## Steps
 drag & drop screenshots here or use imgur and reference them using imgsrc
 
