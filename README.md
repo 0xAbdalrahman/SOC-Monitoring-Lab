@@ -1,5 +1,7 @@
 # AD-Security-Lab
 
+![image alt](https://github.com/0xAbdalrahman/AD-Security-Lab/blob/1305c80500f4b2c30f9c7591558fc107c1299c3c/AD%20Env.png)
+
 ## Objective
 This project simulates a complete Active Directory (AD) security environment integrated with Splunk SIEM for log collection, attack detection, and incident response. It demonstrates both red team attacks and blue team detection techniques in a controlled lab setting.
 
