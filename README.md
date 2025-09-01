@@ -4,6 +4,8 @@
 
 ## Objective
 This project simulates a complete Active Directory (AD) security environment integrated with Splunk SIEM for log collection, attack detection, and incident response. It demonstrates both red team attacks and blue team detection techniques in a controlled lab setting.
+<br></br>
+
 
 ## Skills Learned
 
@@ -19,10 +21,10 @@ This project simulates a complete Active Directory (AD) security environment int
 - Created Sigma rules for generic, SIEM-agnostic detection of attacks.
 ##### Cybersecurity Problem-Solving 
 - Developed critical thinking and hands-on problem-solving skills in security monitoring and investigation.
+<br></br>
 
---------------
+## Tools Used
 
-### Tools Used
 ##### Windows Server & Windows 10: 
 - Active Directory Domain Controller and client machine.
 ##### Ubuntu Server
@@ -39,6 +41,7 @@ This project simulates a complete Active Directory (AD) security environment int
 - Brute force tool for RDP attacks.
 ##### Atomic Red Team
 - Open-source library for testing MITRE ATT&CK techniques in a controlled environment.
+<br></br>
 
   
 ## Steps
