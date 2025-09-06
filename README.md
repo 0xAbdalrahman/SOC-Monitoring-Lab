@@ -42,7 +42,3 @@ This project simulates a complete Active Directory (AD) security environment int
 ##### Atomic Red Team
 - Open-source library for testing MITRE ATT&CK techniques in a controlled environment.
 <br></br>
-
-  
-!-- ## Steps
-
