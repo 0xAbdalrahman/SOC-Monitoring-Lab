@@ -124,6 +124,12 @@ sudo /opt/splunk/bin/splunk enable boot-start -user splunk
 
 #### 2.5 Configure Windows Server
 - Rename the server: ADDC01 → Restart.
+- Configure the domain `splunklab.local`:
+    - Open Server Manager → Add Roles and Features.
+    - Install Active Directory Domain Services (AD DS).
+    - Promote server to Domain Controller → Select Add a new forest → Enter domain: `splunklab.local`.
+    - Restart and log in as SPLUNKLAB\Administrator.
+    - Verify in Active Directory Users and Computers (ADUC) that the domain `splunklab.local` exists.
 - Set static IPv4 on the server’s adapter:
   - IP: 192.168.10.7
   - Subnet mask: 255.255.255.0
@@ -158,7 +164,7 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 ```
 - Restart the SplunkForwarder service (Services → SplunkForwarder → Restart).
 - In Splunk Web, search index=endpoint to confirm logs arrive.
-- Do both steps on Active Directory and the Windows 10 machines.
+- Do these steps on Active Directory and the Windows 10 machines.
 
 #### In the end 
 - All VMs are attached to a NAT network (192.168.10.0/24).
