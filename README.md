@@ -74,7 +74,7 @@ I configured Splunk and Sysmon, forwarded Windows event logs to the indexer, exe
 - For each VM: Settings → Network → Attached to: NAT Network
 - select SOC-NAT. Install Windows only (advanced), and complete setup.
 
-#### 2.2 — Set static IP on Splunk (Ubuntu)
+#### 2.2 — Set static IP on Splunk (Ubuntu)``
 Open a terminal on the Ubuntu VM and edit netplan:
 `sudo nano /etc/netplan/00-installer-config.yaml` replace or update the file to:
 ```
@@ -110,19 +110,7 @@ sudo /opt/splunk/bin/splunk enable boot-start -user splunk
 - In Splunk Web: Settings → Indexes → New Index → name: endpoint.
 - Settings → Forwarding & receiving → Configure receiving → New Receiving Port → set port 9997.
 
-#### 2.4 Configure Windows target 
-
-- Rename PC (optional): Settings → About → Rename this PC → TARGET-PC → Restart.
-- Set static IPv4: Network icon → Open Network & Internet Settings → Change adapter options → Right-click adapter → Properties → IPv4 → Use the following IP address
-  - IP: 192.168.10.100
-  - Subnet mask: 255.255.255.0
-  - Default gateway: 192.168.10.1
-  - Preferred DNS: 8.8.8.8
-- Verify `ipconfig shows 192.168.10.100`
-- From a Windows browser, visit `http://192.168.10.10:8000` to confirm Splunk is reachable.
-- Install the sysmon app from Splunk apps installation.
-
-#### 2.5 Configure Windows Server
+#### 2.3 Configure Windows Server
 - Rename the server: ADDC01 → Restart.
 - Configure the domain `splunklab.local`:
     - Open Server Manager → Add Roles and Features.
@@ -136,12 +124,32 @@ sudo /opt/splunk/bin/splunk enable boot-start -user splunk
   - Default gateway: 192.168.10.1
   - Preferred DNS: 8.8.8.8
 - Install Splunk Universal Forwarder on the server and point to 192.168.10.10:9997.
+- Install the sysmon app from Splunk apps installation.
+
+#### 2.4 Configure Windows 10 
+
+- Rename PC (optional): Settings → About → Rename this PC → TARGET-PC → Restart.
+- Join to the Domain (splunklab.local):
+  - Right-click This PC → Properties.
+  - Click Change settings (under Computer name, domain, and workgroup).
+  - Click Change → Select Domain.
+  - Enter: `splunklab.local`.
+  - Enter Domain Administrator credentials (SPLUNKLAB\Administrator).
+  - On success → “Welcome to the `splunklab.local` domain” message appears.
+  - Restart PC.
+  - Log in using domain credentials (SPLUNKLAB\Administrator or any created domain user).
+- Set static IPv4: Network icon → Open Network & Internet Settings → Change adapter options → Right-click adapter → Properties → IPv4 → Use the following IP address
+  - IP: 192.168.10.100
+  - Subnet mask: 255.255.255.0
+  - Default gateway: 192.168.10.1
+  - Preferred DNS: 8.8.8.8
+- Verify `ipconfig shows 192.168.10.100`
+- From a Windows browser, visit `http://192.168.10.10:8000` to confirm Splunk is reachable.
 - Verify logs in Splunk: index=endpoint — you should see TARGET-PC and ADDC01 as hosts.
 
-#### 2.6 Install Splunk Universal Forwarder and Sysmon
-- Download Splunk Universal Forwarder MSI from splunk.com and install.
-- Download Sysmon (Sysinternals) and a recommended config sysmonconfig.xml from sysmon-modular.
-- In PowerShell (as Administrator), install Sysmon: `.\Sysmon64.exe -i .\sysmonconfig.xml`
+#### 2.5 Install Splunk Universal Forwarder and Sysmon
+- Download Splunk Forwarder from http://splunk.com.
+- Set up Splunk Forwarder and in the (Receiving Indexer) set `192.168.10.10:9997`
 - Configure inputs on the forwarder: create `C:\Program Files\SplunkUniversalForwarder\etc\system\local\inputs.conf` with: 
 ```
 [WinEventLog://Application]
@@ -162,13 +170,15 @@ disabled = false
 renderXml = true
 source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 ```
-- Restart the SplunkForwarder service (Services → SplunkForwarder → Restart).
+- Download Sysmon (Sysinternals) and a recommended config sysmonconfig.xml from sysmon-modular.
+- In PowerShell (as Administrator), install Sysmon: `.\Sysmon64.exe -i .\sysmonconfig.xml`
 - In Splunk Web, search index=endpoint to confirm logs arrive.
 - Do these steps on Active Directory and the Windows 10 machines.
 
-#### In the end 
+#### At the end of Part 2:
 - All VMs are attached to a NAT network (192.168.10.0/24).
 - Ubuntu/Splunk is 192.168.10.10 and accepts forwarded data on port 9997.
+- `splunklab.local` is configured as Domain Controller.
 - Windows target is 192.168.10.100; Windows Server domain controller is 192.168.10.7.
 - Splunk receives Application, Security, System, and Sysmon event logs from both Windows hosts — verify with index=endpoint in Splunk Web.
 
