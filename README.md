@@ -8,12 +8,6 @@
 - [Tools Used](README.md#tools-used)
 - [Part 1 - VM Installation](README.md#part-1--vm-installation)
 - [Part 2 - Network Configuration](README.md#part-2--network-configration)
-  - [2.1 Create NAT network](README.md#21--create-nat-network-and-assign-to-vms)
-  - [2.2 Set static IP on Splunk (Ubuntu)](README.md#part-2--network-configration)
-  - [2.3 Configure Windows Server](README.md#23---configure-windows-server)
-  - [2.4 Configure Windows 10](README.md#24---configure-windows-10)
-  - [2.5 Splunk UF & Sysmon](README.md#25---splunk-universal-forwarder-and-sysmon)
-  - [2.6 Kali Linux](README.md#26---kali-linux)
 
 ## Splunk & AD Lab Network Diagram
 ![SOC Lab Environment](images/SOC%20Env.png)
@@ -92,7 +86,7 @@ I configured Splunk and Sysmon, forwarded Windows event logs to the indexer, exe
 - For each VM: Settings → Network → Attached to: NAT Network
 - select SOC-NAT. Install Windows only (advanced), and complete setup.
 
-#### 2.2 — Set static IP on Splunk (Ubuntu)``
+#### 2.2 — Set static IP on Splunk (Ubuntu)
 Open a terminal on the Ubuntu VM and edit netplan:
 `sudo nano /etc/netplan/00-installer-config.yaml` replace or update the file to:
 ```
