@@ -1,9 +1,14 @@
 # AD-Security-Lab
 
-![image alt](https://github.com/0xAbdalrahman/AD-Security-Lab/blob/1305c80500f4b2c30f9c7591558fc107c1299c3c/AD%20Env.png)
 
 ## Objective
-This project simulates a complete Active Directory (AD) security environment integrated with Splunk SIEM for log collection, attack detection, and incident response. It demonstrates both red team attacks and blue team detection techniques in a controlled lab setting.
+I will build a controlled virtual environment for hands-on cybersecurity learning. This lab will include multiple virtual machines (Windows 10, Kali Linux, Windows Server, and Ubuntu Server) configured on VirtualBox with proper networking. I will install and configure Splunk on Ubuntu Server and deploy Splunk Universal Forwarders with Sysmon on Windows endpoints to collect security telemetry.
+
+I will set up Active Directory on Windows Server to manage a domain environment and enable automated tasks using PowerShell. From the offensive side, I will run basic brute-force tests with Crowbar from Kali against Windows targets.
+
+On the defensive side, I will monitor and analyze logs in Splunk, where I will build dashboards to visualize authentication activity, configure alerts to detect brute-force attempts and suspicious logons, and generate scheduled reports to summarize activity and incidents.
+
+By the end of this project, I will have an end-to-end lab that simulates both attack and defense, integrates reporting and alerting through Splunk, and strengthens my skills in virtualization, networking, endpoint monitoring, Active Directory, incident detection, and security automation.
 <br></br>
 
 
