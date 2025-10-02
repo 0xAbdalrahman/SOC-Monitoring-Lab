@@ -6,7 +6,7 @@
 - [Objective](README.md#objective)
 - [Skills Learned](README.md#skills-learned)
 - [Tools Used](README.md#tools-used)
-- [Part 1 - VM Installation](README.md#part-1---vm-installation)
+- [Part 1 - VM Installation](README.md#part-1--vm-installation)
 - [Part 2 - Network Configuration](README.md#part-2---network-configuration)
   - [2.1 Create NAT network](README.md#21---create-nat-network-and-assign-to-vms)
   - [2.2 Set static IP on Splunk (Ubuntu)](README.md#22---set-static-ip-on-splunk-ubuntu)
@@ -15,7 +15,7 @@
   - [2.5 Splunk UF & Sysmon](README.md#25---splunk-universal-forwarder-and-sysmon)
   - [2.6 Kali Linux](README.md#26---kali-linux)
 
-#### Splunk & AD Lab Network Diagram
+## Splunk & AD Lab Network Diagram
 ![SOC Lab Environment](images/SOC%20Env.png)
 
 ## Description
