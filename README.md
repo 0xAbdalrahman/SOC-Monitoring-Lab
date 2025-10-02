@@ -1,6 +1,5 @@
 # Splunk Lab Environment
 
-
 ## Description
 I built a SOC Monitoring Lab, a small virtual SOC on VirtualBox. I deployed Ubuntu Server (Splunk), Windows Server with a domain controller, Windows 10 as a target machine, and Kali Linux for attacking purposes.
 
@@ -63,9 +62,107 @@ I configured Splunk and Sysmon, forwarded Windows event logs to the indexer, exe
 - Download the Windows 10 ISO https://www.microsoft.com/en-ca/software-download/windows10
 - In VirtualBox, create a new VM based on your computer resources.
 
-#### 5. Install Kali Linux
+#### Install Kali Linux
 - Download the VirtualBox image from [kali.org](https://www.kali.org/get-kali/#kali-virtual-machines)
 - In VirtualBox, create a new VM based on your computer resources.
 <br></br>
 
+## Part 2 — Network Configration
+
+#### 2.1 — Create NAT network and assign to VMs
+- In VirtualBox: Tools → Network → NAT Networks → Create. Example IPv4 prefix: 192.168.10.0/24. Give the network a name and Apply.
+- For each VM: Settings → Network → Attached to: NAT Network
+- select SOC-NAT. Install Windows only (advanced), and complete setup.
+
+#### 2.2 — Set static IP on Splunk (Ubuntu)
+Open a terminal on the Ubuntu VM and edit netplan:
+`sudo nano /etc/netplan/00-installer-config.yaml` replace or update the file to:
+```
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.10.10/24]
+      nameservers:
+        addresses: [8.8.8.8]
+      routes:
+        - to: default
+          via: 192.168.10.1
+  version: 2
+```
+Apply the configuration and verify `sudo netplan apply`
+
+#### 2.3 — Install Splunk on Ubuntu
+- Download Splunk Enterprise .deb from splunk.com (transfer via shared folder or SCP).
+- Install VirtualBox guest tools for shared folders `sudo apt-get install virtualbox-guest-utils`
+- Mount shared folder (if used)
+```
+sudo mkdir /mnt/share
+sudo mount -t vboxsf -o uid=1000,gid=1000 <shared-folder-name> /mnt/share
+ls -la /mnt/share
+```
+- Install Splunk:
+```
+sudo dpkg -i /mnt/share/splunk-<version>.deb
+sudo /opt/splunk/bin/splunk start --accept-license
+sudo /opt/splunk/bin/splunk enable boot-start -user splunk
+```
+- In Splunk Web: Settings → Indexes → New Index → name: endpoint.
+- Settings → Forwarding & receiving → Configure receiving → New Receiving Port → set port 9997.
+
+#### 2.4 Configure Windows target 
+
+- Rename PC (optional): Settings → About → Rename this PC → TARGET-PC → Restart.
+- Set static IPv4: Network icon → Open Network & Internet Settings → Change adapter options → Right-click adapter → Properties → IPv4 → Use the following IP address
+  - IP: 192.168.10.100
+  - Subnet mask: 255.255.255.0
+  - Default gateway: 192.168.10.1
+  - Preferred DNS: 8.8.8.8
+- Verify `ipconfig shows 192.168.10.100`
+- From a Windows browser, visit `http://192.168.10.10:8000` to confirm Splunk is reachable.
+- Install the sysmon app from Splunk apps installation.
+
+#### 2.5 Configure Windows Server
+- Rename the server: ADDC01 → Restart.
+- Set static IPv4 on the server’s adapter:
+  - IP: 192.168.10.7
+  - Subnet mask: 255.255.255.0
+  - Default gateway: 192.168.10.1
+  - Preferred DNS: 8.8.8.8
+- Install Splunk Universal Forwarder on the server and point to 192.168.10.10:9997.
+- Verify logs in Splunk: index=endpoint — you should see TARGET-PC and ADDC01 as hosts.
+
+#### 2.6 Install Splunk Universal Forwarder and Sysmon
+- Download Splunk Universal Forwarder MSI from splunk.com and install.
+- Download Sysmon (Sysinternals) and a recommended config sysmonconfig.xml from sysmon-modular.
+- In PowerShell (as Administrator), install Sysmon: `.\Sysmon64.exe -i .\sysmonconfig.xml`
+- Configure inputs on the forwarder: create `C:\Program Files\SplunkUniversalForwarder\etc\system\local\inputs.conf` with: 
+```
+[WinEventLog://Application]
+index = endpoint
+disabled = false
+
+[WinEventLog://Security]
+index = endpoint
+disabled = false
+
+[WinEventLog://System]
+index = endpoint
+disabled = false
+
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+index = endpoint
+disabled = false
+renderXml = true
+source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+```
+- Restart the SplunkForwarder service (Services → SplunkForwarder → Restart).
+- In Splunk Web, search index=endpoint to confirm logs arrive.
+- Do both steps on Active Directory and the Windows 10 machines.
+
+#### In the end 
+- All VMs are attached to a NAT network (192.168.10.0/24).
+- Ubuntu/Splunk is 192.168.10.10 and accepts forwarded data on port 9997.
+- Windows target is 192.168.10.100; Windows Server domain controller is 192.168.10.7.
+- Splunk receives Application, Security, System, and Sysmon event logs from both Windows hosts — verify with index=endpoint in Splunk Web.
 
