@@ -1,5 +1,9 @@
 # Splunk Lab Environment
 
+## SOC Lab Diagram
+
+![SOC Lab Environment](images/SOC%20Env.png)
+
 ## Description
 I built a SOC Monitoring Lab, a small virtual SOC on VirtualBox. I deployed Ubuntu Server (Splunk), Windows Server with a domain controller, Windows 10 as a target machine, and Kali Linux for attacking purposes.
 
