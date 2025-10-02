@@ -1,7 +1,5 @@
 # Splunk Lab Environment
-
-## SOC Lab Diagram
-
+#### Splunk & AD Lab Network Diagram
 ![SOC Lab Environment](images/SOC%20Env.png)
 
 ## Description
