@@ -129,7 +129,7 @@ sudo /opt/splunk/bin/splunk enable boot-start -user splunk
 #### 2.4 Configure Windows 10 
 
 - Rename PC (optional): Settings → About → Rename this PC → TARGET-PC → Restart.
-- Join to the Domain (splunklab.local):
+- Join the Domain (splunklab.local):
   - Right-click This PC → Properties.
   - Click Change settings (under Computer name, domain, and workgroup).
   - Click Change → Select Domain.
@@ -175,10 +175,20 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 - In Splunk Web, search index=endpoint to confirm logs arrive.
 - Do these steps on Active Directory and the Windows 10 machines.
 
-#### At the end of Part 2:
-- All VMs are attached to a NAT network (192.168.10.0/24).
-- Ubuntu/Splunk is 192.168.10.10 and accepts forwarded data on port 9997.
-- `splunklab.local` is configured as Domain Controller.
-- Windows target is 192.168.10.100; Windows Server domain controller is 192.168.10.7.
-- Splunk receives Application, Security, System, and Sysmon event logs from both Windows hosts — verify with index=endpoint in Splunk Web.
+ #### 2.6 Kali Linux
+ Set Static IP
+- Power on the Kali Linux VM and log in.
+- Right-click the network/connection icon (top-right).
+- Select Edit Connections → Wired connection 1 → Edit selected connection.
+- Go to IPv4 Settings:
+  - Method: Manual
+  - Click Add and enter:
+  - Address: 192.168.10.250 - Netmask: 255.255.255.0 (or /24) - Gateway: 192.168.10.1 - DNS servers: 8.8.8.8
+  - Click Save.
+ 
+Update Kali
+- Run system update & upgrade: `sudo apt-get update && sudo apt-get upgrade -y`
+
+
+
 
