@@ -130,6 +130,7 @@ sudo /opt/splunk/bin/splunk enable boot-start -user splunk
     - Promote server to Domain Controller → Select Add a new forest → Enter domain: `splunklab.local`.
     - Restart and log in as SPLUNKLAB\Administrator.
     - Verify in Active Directory Users and Computers (ADUC) that the domain `splunklab.local` exists.
+    - Make OU name IT and create users, for example (jsmith, tsmith) 
 - Set static IPv4 on the server’s adapter:
   - IP: 192.168.10.7
   - Subnet mask: 255.255.255.0
