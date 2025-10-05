@@ -73,7 +73,7 @@ I configured Splunk and Sysmon, forwarded Windows event logs to the indexer, exe
 - Download the Windows 10 ISO https://www.microsoft.com/en-ca/software-download/windows10
 - In VirtualBox, create a new VM based on your computer resources.
 
-#### Install Kali Linux
+#### 5. Install Kali Linux
 - Download the VirtualBox image from [kali.org](https://www.kali.org/get-kali/#kali-virtual-machines)
 - In VirtualBox, create a new VM based on your computer resources.
 <br></br>
