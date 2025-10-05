@@ -8,7 +8,7 @@
 - [Tools Used](README.md#tools-used)
 - [Part 1 - VM Installation](README.md#part-1--vm-installation)
 - [Part 2 - Network Configuration](README.md#part-2--network-configration)
-- [Part 3 — Creating Reports and Alerts using Splunk](README.md#part-3---creating-reports-and-alerts-using-splunk).
+- [Part 3 - Creating Reports and Alerts using Splunk](README.md#part-3---creating-reports-and-alerts-using-splunk).
 
 ## Splunk & AD Lab Network Diagram
 ![SOC Lab Environment](images/SOC%20Env.png)
