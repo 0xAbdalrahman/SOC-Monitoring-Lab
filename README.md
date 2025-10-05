@@ -205,5 +205,33 @@ Perform a brute-force test using `crowbar` over any user that you created.
 - `sudo crowbar -b rdp -u tsmith -C passwords.txt -s 192.168.10.100/32 `
 
 ## Part 3 —  Creating Reports and Alerts using Splunk
+#### 3.1 Creating Reports 
+1. Go to Search & Reporting.
+2. Run your search. `index=endpoint EventCode=4625`
+3. Click Save As → Report.
+4. Name the report.
+5. Choose Scheduled or Real-time.
+6. Save and test the alert.
+   
+To view/manage reports: App → Search&Reports → Reports
+
+#### 3.2 Creating Alerts
+1. Go to Search & Reporting.
+2. Run your search. `index=endpoint EventCode=4625`
+3. Click Save As → Alert.
+4. Name the alert.
+5. Choose Scheduled or Real-time.
+6. Set Trigger conditions.
+7. Add Alert actions.
+8. Save and test the alert.
+
+To view/manage reports: App → Search&Reports → Alerts
+
+#### 3.2 Check Alerts and Report Output
+- You will find the path of alerts and reports in: Settings → Lookup  → Lookup table files 
+- In the Splunk Server, go to this path and check the alerts and reports 
+
+
+
 
 
