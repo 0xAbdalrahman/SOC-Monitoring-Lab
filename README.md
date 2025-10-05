@@ -249,9 +249,10 @@ Checking the path of the report and alerts to see the output
 <br></br>
 
 ## Conclusion
-This project highlights my practical skills in building searches, reports, and alerts to monitor system activity and detect potential threats.  
-Feel free to ⭐ the repo or share your feedback — I’m always open to learning and improving.  
-Thanks for coming by! 🙌
+This project demonstrates my ability to design and implement a complete SOC monitoring lab using Splunk and Active Directory.  
+It highlights practical skills in search creation and alert configuration.  
+⭐ Feel free to explore, share feedback, or suggest improvements — always learning and evolving! 🙌
+
 
 
 
