@@ -8,6 +8,7 @@
 - [Tools Used](README.md#tools-used)
 - [Part 1 - VM Installation](README.md#part-1--vm-installation)
 - [Part 2 - Network Configuration](README.md#part-2--network-configration)
+- [Part 3 — Creating Reports and Alerts using Splunk](README.md#part-3---creating-reports-and-alerts-using-splunk).
 
 ## Splunk & AD Lab Network Diagram
 ![SOC Lab Environment](images/SOC%20Env.png)
@@ -15,13 +16,13 @@
 ## Description
 I built a SOC Monitoring Lab, a small virtual SOC on VirtualBox. I deployed Ubuntu Server (Splunk), Windows Server with a domain controller, Windows 10 as a target machine, and Kali Linux for attacking purposes.
 
-I configured Splunk and Sysmon, forwarded Windows event logs to the indexer, executed controlled attacks from Kali, and created Splunk dashboards, real-time alerts, and scheduled reports to detect, monitor, and investigate suspicious activity.
+I configured Splunk and Sysmon, forwarded Windows event logs to the indexer, executed controlled attacks from Kali, and created real-time alerts, and scheduled reports to detect, monitor, and investigate suspicious activity.
 <br></br>
 
 ## Objective
 - The objective of this lab is to provide a hands-on environment for practicing cybersecurity. Using VirtualBox, it runs Windows 10, Kali Linux, Windows Server, and Ubuntu Server to cover skills like network setup, endpoint monitoring, and security tool deployment with Splunk and Sysmon. 
 
-- The lab includes offensive testing with Crowbar and Active Directory integration. On the defensive side, it focuses on installing and configuring Splunk, forwarding logs, creating dashboards, building reports, and setting up real-time alerts. 
+- The lab includes offensive testing with Crowbar and Active Directory integration. On the defensive side, it focuses on installing and configuring Splunk, forwarding logs, building reports, and setting up real-time alerts. 
 <br></br>
 
 ## Skills Learned
@@ -32,8 +33,6 @@ I configured Splunk and Sysmon, forwarded Windows event logs to the indexer, exe
 - Install, configure, and use Splunk for log collection, indexing, and searching.
 #### Network Administration
 - Configure IP addresses and troubleshoot connectivity issues (ping, DNS, RDP).
-#### Sigma Rules
-- Write Sigma rules for SIEM-agnostic detection of malicious patterns.
 #### Log Analysis
 - Interpret Windows and network logs to detect suspicious activity and incidents.
 #### Problem-Solving
@@ -52,8 +51,8 @@ I configured Splunk and Sysmon, forwarded Windows event logs to the indexer, exe
 - Attacker machine for simulating attacks.
 #### Sysmon
 - Collecting and analyzing Windows security logs.
-#### Sigma
-- Generic detection rule framework for defining attack logic.
+#### crowbar
+- A brute-force attack tool
 <br></br>
 
 ## Part 1 – VM Installation
@@ -201,7 +200,10 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
  
 Update Kali
 - Run system update & upgrade: `sudo apt-get update && sudo apt-get upgrade -y`
+  
+Perform a brute-force test using `crowbar` over any user that you created.
+- `sudo crowbar -b rdp -u tsmith -C passwords.txt -s 192.168.10.100/32 `
 
-
+## Part 3 —  Creating Reports and Alerts using Splunk
 
 
