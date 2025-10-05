@@ -8,8 +8,9 @@
 - [Tools Used](README.md#tools-used)
 - [Part 1 - VM Installation](README.md#part-1--vm-installation)
 - [Part 2 - Network Configuration](README.md#part-2--network-configration)
-- [Part 3 - Creating Reports and Alerts using Splunk](README.md#part-3---creating-reports-and-alerts-using-splunk).
-
+- [Part 3 - Creating Reports and Alerts using Splunk](README.md#part-3---creating-reports-and-alerts-using-splunk)
+- [Conclusion](README.md#conclusion)
+  
 ## Splunk & AD Lab Network Diagram
 ![SOC Lab Environment](images/SOC%20Env.png)
 
@@ -244,8 +245,13 @@ To view/manage reports: App → Search&Reports → Alerts
 #### 3.4 Check Alerts and Report Output
 Checking the path of the report and alerts to see the output 
 
+![SOC Lab Environment](images/report.png)
+<br></br>
 
-
+## Conclusion
+This project highlights my practical skills in building searches, reports, and alerts to monitor system activity and detect potential threats.  
+Feel free to ⭐ the repo or share your feedback — I’m always open to learning and improving.  
+Thanks for coming by! 🙌
 
 
 
