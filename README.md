@@ -1,4 +1,4 @@
-# Splunk Lab Environment
+# Splunk & AD Lab Environment
 
 ## Table of Contents
 - [Splunk & AD Lab Network Diagram](README.md#splunk--ad-lab-network-diagram)
