@@ -251,7 +251,8 @@ Checking the path of the report and alerts to see the output
 ## Conclusion
 This project demonstrates my ability to design and implement a complete SOC monitoring lab using Splunk and Active Directory.  
 It highlights practical skills in search creation and alert configuration.  
-⭐ Feel free to explore, share feedback, or suggest improvements — always learning and evolving! 🙌
+
+⭐ Feel free to explore, share feedback, or suggest improvements - always learning and evolving! 🙌
 
 
 
