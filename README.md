@@ -212,7 +212,11 @@ Perform a brute-force test using `crowbar` over any user that you created.
 4. Name the report.
 5. Choose Scheduled or Real-time.
 6. Save and test the alert.
-   
+
+![SOC Lab Environment](images/report_image/creating_report.png)
+![SOC Lab Environment](images/report_image/creating_report2.png)
+![SOC Lab Environment](images/report_image/creating_report3.png)
+
 To view/manage reports: App → Search&Reports → Reports
 
 #### 3.2 Creating Alerts
@@ -224,6 +228,10 @@ To view/manage reports: App → Search&Reports → Reports
 6. Set Trigger conditions.
 7. Add Alert actions.
 8. Save and test the alert.
+
+![SOC Lab Environment](images/alert_image/creating_alert1.png)
+![SOC Lab Environment](images/alert_image/creating_alert2.png)
+![SOC Lab Environment](images/alert_image//alert_info.png)
 
 To view/manage reports: App → Search&Reports → Alerts
 
