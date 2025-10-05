@@ -235,9 +235,16 @@ To view/manage reports: App → Search&Reports → Reports
 
 To view/manage reports: App → Search&Reports → Alerts
 
-#### 3.2 Check Alerts and Report Output
+#### 3.3 Check Alerts and Report Output
 - You will find the path of alerts and reports in: Settings → Lookup  → Lookup table files 
-- In the Splunk Server, go to this path and check the alerts and reports 
+- In the Splunk Server, go to this path and check the alerts and reports
+  
+![SOC Lab Environment](images/report_alerts_path.png)
+
+#### 3.4 Check Alerts and Report Output
+Checking the path of the report and alerts to see the output 
+
+
 
 
 
